@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Somalia National Security Intelligence & Threat Map</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <!-- ================= PAGE 1: AUTO STARTUP SCREEN (15s Countdown) ================= -->
+    <div id="page-upload" class="app-page active-page">
+        <div class="matrix-bg" id="matrix-code"></div>
+        <div class="splash-hud-container cyber-box">
+            <div class="hud-clock-face" id="loader-clock">
+                <div class="clock-hand"></div>
+                <span id="startup-timer">15s</span>
+            </div>
+            <div class="splash-info">
+                <h1>[SOMALIA_SEC_NET // CYBER_DEFENSE]</h1>
+                <p>Created by Yusuf Ali Yusuf Hassan</p>
+                <p class="auto-boot-txt">AUTO-INITIALIZING SYSTEM...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 2: MAIN DASHBOARD & MAP ================= -->
+    <div id="page-dashboard" class="app-page">
+        <header class="app-header cyber-header">
+            <div class="logo-area">
+                <h1>⚡ CYBER INTEL // SOMALIA SECURITY MAP</h1>
+                <span class="subtitle">Created by Yusuf Ali Yusuf Hassan &bull; SEC-ALERT Active</span>
+            </div>
+            <div class="header-actions">
+                <button id="nav-to-news" class="nav-btn cyber-btn">📰 View News & Situation (Page 3)</button>
+            </div>
+        </header>
+
+        <main class="app-layout">
+            <section id="map" aria-label="Interactive Security Map"></section>
+            
+            <aside class="control-panel cyber-panel">
+                <h2>// THREAT MATRIX & CHECKPOINTS</h2>
+                <p class="panel-desc">Tap any sector for 15s Continuous Scan with Rainfall Data & Peep Sound</p>
+
+                <div class="sectors-stack">
+                    <button class="sector-button secure-btn" data-lat="2.0469" data-lng="45.3182" data-title="Mogadishu National Command (KM4)" data-desc="Government HQ / Main Checkpoint - Secure Zone." data-desc-so="Xarunta Dowladda / Kontoroolka Weyn - Aag Ammaan ah." data-risk="low">
+                      <div class="sec-text">
+                        <strong>Mogadishu National Command (KM4)</strong>
+                        <span class="txt-en">Government HQ / Main Checkpoint - Secure Zone.</span>
+                        <span class="txt-so">Xarunta Dowladda / Kontoroolka Weyn - Aag Ammaan ah.</span>
+                      </div>
+                      <span class="badge-status low">LOW // AMMAAN</span>
+                    </button>
+
+                    <button class="sector-button secure-btn" data-lat="2.0330" data-lng="45.3400" data-title="Mogadishu Port Security Gate" data-desc="Strategic Economic Hub - Secured Perimeter." data-desc-so="Isha Dhaqaalaha Istaraatiijiga ah - Xuduud La Sugay." data-risk="low">
+                      <div class="sec-text">
+                        <strong>Mogadishu Port Security Gate</strong>
+                        <span class="txt-en">Strategic Economic Hub - Secured Perimeter.</span>
+                        <span class="txt-so">Isha Dhaqaalaha Istaraatiijiga ah - Xuduud La Sugay.</span>
+                      </div>
+                      <span class="badge-status low">LOW // AMMAAN</span>
+                    </button>
+
+                    <button class="sector-button high-btn" data-lat="2.1412" data-lng="45.1221" data-title="Afgooye Junction Control Post" data-desc="WARNING: Tactical Highway Checkpoint - High Alert / Contested Corridor." data-desc-so="DIGNIIS: Kontoroolka Jidka Istaraatiijiga ah - Heegan Sare / Aag Lagu Muransan yahay." data-risk="high">
+                      <div class="sec-text">
+                        <strong>Afgooye Junction Control Post</strong>
+                        <span class="txt-en">Tactical Highway Checkpoint - High Alert / Contested Corridor.</span>
+                        <span class="txt-so">Kontoroolka Jidka - Heegan Sare / Aag Lagu Muransan yahay.</span>
+                      </div>
+                      <span class="badge-status high">HIGH // HALIS</span>
+                    </button>
+
+                    <button class="sector-button medium-btn" data-lat="2.7667" data-lng="45.5167" data-title="Jowhar Northern Gateway" data-desc="Regional Capital Gate - Reinforced Defense." data-desc-so="Iridda Magaalada Gobolka - Difaac La Adkeeyay." data-risk="medium">
+                      <div class="sec-text">
+                        <strong>Jowhar Northern Gateway</strong>
+                        <span class="txt-en">Regional Capital Gate - Reinforced Defense.</span>
+                        <span class="txt-so">Iridda Magaalada Gobolka - Difaac La Adkeeyay.</span>
+                      </div>
+                      <span class="badge-status medium">MED // DHEXE</span>
+                    </button>
+
+                    <button class="sector-button medium-btn" data-lat="2.3000" data-lng="45.3000" data-title="Balcad Sector 3 Command" data-desc="Military Base & Checkpoint - Active Surveillance." data-desc-so="Saldhigga Ciidanka & Kontoroolka - Ilaalo Toos ah." data-risk="medium">
+                      <div class="sec-text">
+                        <strong>Balcad Sector 3 Command</strong>
+                        <span class="txt-en">Military Base & Checkpoint - Active Surveillance.</span>
+                        <span class="txt-so">Saldhigga Ciidanka - Ilaalo Toos ah.</span>
+                      </div>
+                      <span class="badge-status medium">MED // DHEXE</span>
+                    </button>
+
+                    <button class="sector-button secure-btn" data-lat="0.3582" data-lng="42.5454" data-title="Kismayo Port & Coastal Gate" data-desc="Kismayo Port & Coastal Gate - Stable Zone." data-desc-so="Dekedda Kismaayo & Iridda Xeebta - Aag Xasiloon." data-risk="low">
+                      <div class="sec-text">
+                        <strong>Kismayo Port & Coastal Gate</strong>
+                        <span class="txt-en">Kismayo Port & Coastal Gate - Stable Zone.</span>
+                        <span class="txt-so">Dekedda Kismaayo & Xeebta - Aag Xasiloon.</span>
+                      </div>
+                      <span class="badge-status low">LOW // AMMAAN</span>
+                    </button>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- ================= PAGE 3: NEWS & LIVE SITUATION ================= -->
+    <div id="page-news" class="app-page">
+        <header class="app-header cyber-header">
+            <div class="logo-area">
+                <h1>⚡ LIVE INTEL & SITUATION (EN / SO)</h1>
+                <span class="subtitle">Created by Yusuf Ali Yusuf Hassan &bull; Firebase Realtime Security Sync</span>
+            </div>
+            <div class="header-actions">
+                <button id="nav-to-dashboard" class="nav-btn cyber-btn">🗺 Back to Security Map</button>
+            </div>
+        </header>
+
+        <main class="news-layout">
+            <div class="news-container cyber-box">
+                <h2>// REAL-TIME NATIONAL SECURITY SITREP</h2>
+                <p class="panel-desc">Bilingual Security Logs / Diiwaanka Amniga (Ingiriisi & Soomaali)</p>
+                <ul id="firebase-log-list">
+                    <!-- Loaded dynamically from Firebase with dual translations -->
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <!-- ================= SCANNING MODAL OVERLAY ================= -->
+    <div id="scan-modal" class="scan-overlay">
+        <div class="scan-hud cyber-box" id="scan-hud-box">
+            <div class="hud-clock-face">
+                <div class="clock-hand"></div>
+                <span id="scan-timer">15s</span>
+            </div>
+            <h2 id="scan-title">SCANNING SECTOR...</h2>
+            <div id="rainfall-display" class="rainfall-box">RAINFALL / ROOBKA: 0.0 mm/h</div>
+            <p id="scan-subtitle">Analyzing tactical threat levels and weather metrics</p>
+            <span class="author-tag">Created by Yusuf Ali Yusuf Hassan</span>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    
+    <!-- App Logic -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
